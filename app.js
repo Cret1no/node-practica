@@ -27,13 +27,32 @@ const fs = require("fs");
 //Agregar contenido al final de un archivo
 //archivo | contenido | funcion(err)
 
-fs.appendFile(
+/*fs.appendFile(
   "./index.html",
   "<p>Este parrafo es agregado al final con el metodo appendFile</p>",
   (err) => {
     if (err) {
       throw err;
     }
-    console.log("Archivo modificado exitosamente");
+    console.log("Contenido agregado exitosamente");
   },
-);
+);*/
+
+//modificar contenido de un archivo, si el archivo no existe, lo crea
+// archivo a modificar | nuevo contenido | manejo de error
+/*fs.writeFile("./main.html", "<h1>Este es el nuevo contenido</h1>", (err) => {
+  if (err) {
+    throw err;
+  }
+  console.log("Archivo modificado exitosamente");
+});*/
+
+//eliminar un archivo, metodo unlink
+// archivo | manejo de error
+
+/*fs.unlink("./main.html", (err) => {
+  if (err) {
+    throw err;
+  }
+  console.log("Archivo eliminado exitosamente");
+});*/
