@@ -5,7 +5,4 @@ const { mostrarTema } = require("./mostrar-tema.js");
 
 //setImmediate se ejecuta despues de todo el codigo sincrono
 
-console.log("esto sale antes del setImmediate");
-setImmediate(mostrarTema, "Node.js");
-console.log("esto sale despues del setImmediate");
-console.log("esto sale despues del setImmediate");
+setInterval(mostrarTema, 2000, "Node js");
