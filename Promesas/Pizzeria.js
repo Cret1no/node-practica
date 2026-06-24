@@ -16,4 +16,13 @@ const miPedido = new Promise((resolve, reject) => {
 const pedidoExitoso = (mensajeExitoso) => console.log(mensajeExitoso);
 const pedidoRechazado = (mensajeRechazo) => console.log(mensajeRechazo);
 
-miPedido.then(pedidoExitoso, pedidoRechazado);
+//miPedido.then(pedidoExitoso, pedidoRechazado);
+
+//Otra forma con then y catch(metodo de promesa que maneja el reject)
+miPedido
+  .then((mensajeExitoso) => {
+    console.log(mensajeExitoso);
+  })
+  .catch((mensajeRechazo) => {
+    console.log(mensajeRechazo);
+  });
