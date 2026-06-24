@@ -1,0 +1,3 @@
+//este archivo se hace gracias a la extension REST Client sirve para probar request
+//request = metodo + url
+PATCH http://localhost:3000
