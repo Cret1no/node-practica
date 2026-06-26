@@ -19,7 +19,6 @@ const server = http.createServer((req, res) => {
       res.end(`El metodo no puede ser usado por el servidor: ${method}`);
       break;
   }
-  res.end(`El mejor curso es: ${infoCursos.infoCursos.programacion[0].titulo}`);
 });
 
 function manejarSolicitudGET(req, res) {
@@ -46,13 +45,27 @@ function manejarSolicitudGET(req, res) {
 
 function manejarSolicitudPOST(req, res) {
   const path = req.url;
-
+  console.log(path);
   if (path === "/cursos/programacion") {
-    return res.end("El servidor recibio una solitud POST!");
-  }
+    let cuerpo = "";
+    //Manejamos lo que viene en la solicitud con el metodo built-in 'data'
+    req.on("data", (contenido) => {
+      //convertimos el contenido en string y lo almacenamos en cuerpo
+      cuerpo += contenido.toString();
+    });
+    req.on("end", () => {
+      console.log(cuerpo);
+      console.log(typeof cuerpo);
+      //Convertir a un objeto de Javascript
+      cuerpo = JSON.parse(cuerpo);
+      console.log(typeof cuerpo);
+      console.log(cuerpo.titulo);
 
-  res.statusCode = 404;
-  return res.end("El recurso solicitado no se encuentra disponible...");
+      return res.end("El servidor recibio una solitud POST!");
+    });
+  }
+  //res.statusCode = 404;
+  //return res.end("El recurso solicitado no se encuentra disponible...");
 }
 
 const PORT = 3000;
