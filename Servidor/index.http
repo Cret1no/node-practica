@@ -1,3 +1,8 @@
 //este archivo se hace gracias a la extension REST Client sirve para probar request
 //request = metodo + url
-PATCH http://localhost:3000
+POST http://localhost:3000/cursos/programacion
+Content-Type: application/json
+
+{
+    "titulo": "El misterioso hombre de negro"
+}
