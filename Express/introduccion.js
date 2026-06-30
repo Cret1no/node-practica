@@ -19,6 +19,29 @@ app.get('/cursos/matematicas', (req, res) => {
   res.send(JSON.stringify(infoCursos.matematicas))
 })
 
+app.get('/cursos/programacion/:lenguaje', (req, res) => {
+  const lenguaje = req.params.lenguaje
+  const resultados = infoCursos.programacion.filter((curso) => {
+    return curso.lenguaje === lenguaje
+  })
+  if (resultados.length === 0) {
+    return res.status(404).send(`No se encontraron cursos de ${lenguaje}`)
+  }
+  return res.send(JSON.stringify(resultados))
+})
+
+app.get('/cursos/matematicas/:tema', (req, res) => {
+  const tema = req.params.tema
+  const resultados = infoCursos.matematicas.filter(
+    (curso) => curso.tema === tema,
+  )
+
+  if (resultados.length === 0) {
+    return res.status(404).send(`No se encontraron cursos de ${tema}`)
+  }
+  return res.end(JSON.stringify(resultados))
+})
+
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`)
 })
