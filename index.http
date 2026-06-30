@@ -4,5 +4,9 @@ POST http://localhost:3000/cursos/programacion
 Content-Type: application/json
 
 {
-    "titulo": "El misterioso hombre de negro"
+    "id": 5,
+    "titulo": "Aprende Node.js",
+    "lenguaje": "javascript",
+    "vistas": 4578,
+    "nivel": "basico"
 }

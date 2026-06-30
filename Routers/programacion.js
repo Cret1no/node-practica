@@ -1,6 +1,12 @@
 const express = require('express')
 const routerProgramacion = express.Router()
 const { programacion } = require('../datos-cursos/cursos.js').infoCursos
+
+// Middleware (se ejecuta despues de la solicitud y antes de la respuesta)
+// En este caso se utilliza para manejar el cuerpo de la solicitud en formato jason
+// Revisa cualquier solicitud, de cualquier metodo
+routerProgramacion.use(express.json())
+
 routerProgramacion.get('/', (req, res) => {
   res.send(JSON.stringify(programacion))
 })
@@ -38,6 +44,12 @@ routerProgramacion.get('/:lenguaje/:nivel', (req, res) => {
   }
 
   return res.send(JSON.stringify(resultados))
+})
+
+routerProgramacion.post('/', (req, res) => {
+  const body = req.body
+  programacion.push(body)
+  res.send(programacion)
 })
 
 module.exports = routerProgramacion
