@@ -76,4 +76,15 @@ routerProgramacion.patch('/:id', (req, res) => {
   res.send(JSON.stringify(programacion))
 })
 
+routerProgramacion.delete('/:id', (req, res) => {
+  const id = req.params.id
+  const index = programacion.findIndex((curso) => curso.id == id)
+  if (index >= 0) {
+    programacion.splice(index, 1)
+  }
+  // eliminamos el JSON.stringify() porque ya lo hace el metodo send
+  // tambien se podria utilizar el metodo res.json
+  res.send(programacion)
+})
+
 module.exports = routerProgramacion
