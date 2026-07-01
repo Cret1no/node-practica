@@ -1,10 +1,10 @@
 //este archivo se hace gracias a la extension REST Client sirve para probar request
 //request = metodo + url
-POST http://localhost:3000/cursos/programacion
+PUT http://localhost:3000/cursos/programacion/2
 Content-Type: application/json
 
 {
-    "id": 5,
+    "id": 2,
     "titulo": "Aprende Node.js",
     "lenguaje": "javascript",
     "vistas": 4578,

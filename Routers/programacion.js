@@ -52,4 +52,16 @@ routerProgramacion.post('/', (req, res) => {
   res.send(programacion)
 })
 
+routerProgramacion.put('/:id', (req, res) => {
+  const id = req.params.id
+  const cursoActualizado = req.body
+  // Utilizo "==" en la comparacion porque curso.id es number y id es string
+  const index = programacion.findIndex((curso) => curso.id == id)
+  if (index >= 0) {
+    programacion[index] = cursoActualizado
+  }
+
+  res.send(JSON.stringify(programacion))
+})
+
 module.exports = routerProgramacion
