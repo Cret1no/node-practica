@@ -10,3 +10,13 @@ Content-Type: application/json
     "vistas": 4578,
     "nivel": "basico"
 }
+
+###
+
+PATCH http://localhost:3000/cursos/programacion/1
+Content-Type: application/json
+
+{
+    "titulo": "El increible curso de Batman!",
+    "lenguaje": "Ingles"
+}

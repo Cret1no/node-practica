@@ -64,4 +64,16 @@ routerProgramacion.put('/:id', (req, res) => {
   res.send(JSON.stringify(programacion))
 })
 
+routerProgramacion.patch('/:id', (req, res) => {
+  const id = req.params.id
+  const infoActualizada = req.body
+  const index = programacion.findIndex((curso) => curso.id == id)
+  if (index >= 0) {
+    const cursoAActualizar = programacion[index]
+    Object.assign(cursoAActualizar, infoActualizada)
+  }
+
+  res.send(JSON.stringify(programacion))
+})
+
 module.exports = routerProgramacion
